@@ -1,298 +1,83 @@
-body {
-    background: #0d1117;
-    color: white;
-    font-family: Arial, sans-serif;
-    text-align: center;
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Consolas", monospace;
 }
-/* NAVBAR SECTION */
-.navbar {
+
+/* Background */
+body {
+    background: #000;
+    color: #00ff88;
+    overflow: hidden;
+}
+
+/* Neon Text */
+.highlight {
+    color: #00ffcc;
+    text-shadow: 0 0 10px #00ffcc;
+}
+
+/* Navbar */
+header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-    background: #111418;
-    border-bottom: 1px solid #00ff9d;
+    padding: 15px 30px;
+    background: rgba(0, 255, 100, 0.05);
+    border-bottom: 1px solid #00ff88;
 }
 
-.logo {
-    color: #00ff9d;
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 25px;
-}
-
-.nav-links a {
+nav a {
+    margin: 0 15px;
     text-decoration: none;
-    color: white;
-    font-size: 18px;
+    color: #00ff88;
     transition: 0.3s;
 }
 
-.nav-links a:hover {
-    color: #00ff9d;
+nav a:hover {
+    text-shadow: 0 0 10px #00ff88;
 }
 
-/* ------- HERO SECTION ------- */
+/* Hero Section */
 .hero {
-    margin-top: 80px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+    text-align: center;
+    margin-top: 120px;
 }
 
-.profile-img {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    border: 3px solid #4CAF50;
-    object-fit: cover;
-    box-shadow: 0 0 20px #4CAF50;
+.hero h2 {
+    font-size: 40px;
 }
 
-.typing-text {
-    font-size: 22px;
-    color: #4CAF50;
-    font-weight: bold;
-    border-right: 3px solid #4CAF50;
-    width: 22ch;
-    white-space: nowrap;
-    overflow: hidden;
-    animation: typing 3s steps(22), blink 0.6s infinite;
+.hero p {
+    font-size: 18px;
+    margin-top: 10px;
 }
 
-@keyframes typing {
-    from { width: 0 }
-}
-
-@keyframes blink {
-    50% { border-color: transparent }
-}
-
-/* ---- Buttons ---- */
-.buttons {
-    display: flex;
-    gap: 20px;
-}
-
+/* Button */
 .btn {
-    padding: 12px 20px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-size: 16px;
-    border: 2px solid #4CAF50;
+    margin-top: 25px;
+    padding: 10px 25px;
+    border: 2px solid #00ff88;
+    background: transparent;
+    color: #00ff88;
+    cursor: pointer;
+    font-size: 18px;
     transition: 0.3s;
 }
 
-.btn.primary {
-    background: #4CAF50;
+.btn:hover {
+    background: #00ff88;
     color: #000;
+    box-shadow: 0px 0px 15px #00ff88;
 }
 
-.btn.primary:hover {
-    opacity: 0.8;
-}
-
-.btn.secondary {
-    color: #4CAF50;
-}
-
-.btn.secondary:hover {
-    background-color: #4CAF50;
-    color: #000;
-}
-/* -------- ABOUT SECTION -------- */
-.about {
-    text-align: center;
-    max-width: 800px;
-    margin: 80px auto;
-    padding: 20px;
-}
-
-.about h2 {
-    font-size: 32px;
-    color: #4CAF50;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.about p {
-    font-size: 18px;
-    line-height: 1.7;
-    color: #ccc;
-}
-/* ------ SKILLS SECTION ------ */
-.skills {
-    width: 80%;
-    margin: auto;
-    margin-top: 80px;
-}
-
-.skills h2 {
-    text-align: center;
-    color: #4CAF50;
-    font-size: 32px;
-    margin-bottom: 25px;
-}
-
-.skill {
-    margin-bottom: 25px;
-}
-
-.skill span {
-    color: #fff;
-    font-size: 18px;
-}
-
-.bar {
+/* Matrix effect */
+.matrix {
+    position: absolute;
     width: 100%;
-    background: #222;
-    height: 12px;
-    border-radius: 5px;
-    margin-top: 5px;
-    overflow: hidden;
-}
-
-.bar div {
     height: 100%;
-    background: #4CAF50;
-    animation: grow 2s ease;
-}
-
-@keyframes grow {
-    from { width: 0; }
-}
-/* ----- PROJECT SECTION ----- */
-.projects {
-    margin-top: 100px;
-    text-align: center;
-}
-
-.project-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 25px;
-    padding: 20px;
-}
-
-.project-card {
-    background: #111;
-    border: 1px solid #333;
-    width: 300px;
-    padding: 20px;
-    border-radius: 10px;
-    transition: 0.4s;
-}
-
-.project-card:hover {
-    transform: scale(1.05);
-    border-color: #4CAF50;
-    box-shadow: 0 0 15px #4CAF50;
-}
-
-.project-card h3 {
-    color: #4CAF50;
-}
-#modeBtn {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    padding: 10px 20px;
-    background: #4CAF50;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 16px;
-}
-/* ----- LIGHT MODE ----- */
-body.light {
-    background: #fff;
-    color: #000;
-}
-
-body.light nav {
-    background: #e0e0e0;
-}
-
-body.light .logo, 
-body.light a, 
-body.light h2 {
-    color: #000;
-}
-
-body.light .project-card {
-    background: #f8f8f8;
-    border-color: #aaa;
-}
-/* ------- CONTACT SECTION ------- */
-.contact {
-    width: 60%;
-    margin: 80px auto;
-    text-align: center;
-}
-
-.contact h2 {
-    font-size: 32px;
-    color: #4CAF50;
-    margin-bottom: 20px;
-}
-
-#contactForm {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-#contactForm input, 
-#contactForm textarea {
-    padding: 12px;
-    font-size: 18px;
-    border-radius: 5px;
-    border: 1px solid #333;
-    background: #111;
-    color: white;
-}
-
-#contactForm button {
-    background: #4CAF50;
-    border: none;
-    padding: 12px;
-    font-size: 18px;
-    cursor: pointer;
-    border-radius: 6px;
-}
-
-#contactForm button:hover {
-    background: #3ca045;
-}
-
-#statusMessage {
-    margin-top: 15px;
-    font-size: 18px;
-}
-/* ----- FOOTER ----- */
-footer {
-    text-align: center;
-    padding: 30px;
-    background: #111;
-    margin-top: 60px;
-    border-top: 1px solid #333;
-}
-
-footer .social a {
-    margin: 0 10px;
-    color: #4CAF50;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-footer .social a:hover {
-    color: white;
+    background-image: url("https://i.imgur.com/1Xo9zQs.gif");
+    opacity: 0.2;
+    z-index: -1;
 }
