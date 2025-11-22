@@ -1,24 +1,37 @@
-const btn = document.getElementById("modeBtn");
+const roles = [
+    "Cybersecurity Enthusiast",
+    "Ethical Hacker",
+    "Bug Bounty Learner",
+    "Web Security Researcher",
+    "Penetration Tester"
+];
 
-btn.addEventListener("click", () => {
-    document.body.classList.toggle("light");
+let index = 0;
+let charIndex = 0;
+let currentRole = "";
+let isDeleting = false;
 
-    if (document.body.classList.contains("light")) {
-        btn.textContent = "🌙 Dark Mode";
+function typeEffect() {
+    currentRole = roles[index];
+
+    if (!isDeleting) {
+        document.getElementById("typing").innerHTML = currentRole.substring(0, charIndex++) + "|";
     } else {
-        btn.textContent = "☀️ Light Mode";
+        document.getElementById("typing").innerHTML = currentRole.substring(0, charIndex--) + "|";
     }
-});
-document.getElementById("contactForm").addEventListener("submit", function(e){
-    e.preventDefault();
 
-    emailjs.send("SERVICE_ID","TEMPLATE_ID",{
-        name: document.getElementById("name").value,
-        email: document.getElementById("email").value,
-        message: document.getElementById("message").value
-    }).then(() => {
-        document.getElementById("statusMessage").innerHTML = "Message Sent ✔";
-    }, () => {
-        document.getElementById("statusMessage").innerHTML = "❌ Failed to send message.";
-    });
-});
+    if (charIndex === currentRole.length + 1) {
+        isDeleting = true;
+        setTimeout(typeEffect, 1000);
+        return;
+    }
+
+    if (charIndex === 0 && isDeleting) {
+        isDeleting = false;
+        index = (index + 1) % roles.length;
+    }
+
+    setTimeout(typeEffect, isDeleting ? 50 : 100);
+}
+
+typeEffect();

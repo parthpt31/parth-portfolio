@@ -81,3 +81,9 @@ nav a:hover {
     opacity: 0.2;
     z-index: -1;
 }
+#typing {
+    font-size: 20px;
+    margin-top: 10px;
+    color: #00ffaa;
+    text-shadow: 0 0 8px #00ffaa;
+}
